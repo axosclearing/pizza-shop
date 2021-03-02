@@ -21,4 +21,15 @@ public class Inventory {
             e.printStackTrace();
         }
     }
+    public int getStock(String item) {
+        return stock.get(item);
+    }
+    public boolean useItem(String item) {
+        int itemStock = stock.get(item);
+        if (itemStock > 0) {
+            stock.put(item, itemStock - 1);
+            return true;
+        }
+        return false;
+    }
 }
