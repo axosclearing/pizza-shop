@@ -14,6 +14,9 @@ public class Main {
         if (keys.size() == 1) {
             joinedToppings.append(keys.get(0));
             return joinedToppings.toString();
+        } else if (keys.size () == 0) {
+            joinedToppings.append("no topping");
+            return joinedToppings.toString();
         }
         for (int i = 0; i < keys.size(); i += 1) {
             if (i == keys.size() - 1 && keys.size() > 2) {
