@@ -13,9 +13,10 @@ public class Inventory {
             // Skip description line
             reader.nextLine();
             while (reader.hasNextLine()) {
-                System.out.print(reader.nextLine());
+                String[] line = (reader.nextLine()).split(", ", 2);
+                stock.put(line[0], Integer.parseInt(line[1]));
             }
-        } catch(IOException e) {
+        } catch (IOException e) {
             System.out.println("Error");
             e.printStackTrace();
         }
