@@ -36,19 +36,23 @@ public class Main {
         Path path = Paths.get("./src/main/resources/ingredient_inventory.csv");
         File file = new File(path.toString());
         Inventory inventory = new Inventory(file);
+        Oven oven = new Oven();
 
         // Store Inputs
         HashSet<String> toppings = new HashSet<>();
 
         // Obtain inputs
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter \"exit\" to exit.");
         System.out.println("Now serving pizzas, enter your toppings");
         System.out.print("Topping> ");
         String entry = scanner.nextLine();
-        while (!entry.equals("Done")) {
+        while (!entry.equals("exit")) {
             // Finished ordering
             if (entry.equals("")) {
-                System.out.println("Placing an order for a " + joinToppings(toppings) + " pizza...\n");
+                String joinedToppings = joinToppings(toppings);
+                System.out.println("Placing an order for a " + joinedToppings + " pizza...\n");
+                oven.addPizza(joinedToppings);
                 toppings.clear();
             // Valid topping ordered
             } else if (inventory.getStock(entry) > 0) {
