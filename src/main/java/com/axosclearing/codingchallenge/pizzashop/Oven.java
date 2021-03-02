@@ -13,7 +13,7 @@ public class Oven {
                 System.out.print("Topping> ");
                 newPizza.cancel();
             }
-        }, 5 * 1000);
+        }, 30 * 1000);
     }
 
 //    public static void main(String[] args) {
