@@ -22,13 +22,18 @@ public class Inventory {
         }
     }
     public int getStock(String item) {
-        return stock.get(item);
+        if (stock.containsKey(item)) {
+            return stock.get(item);
+        }
+        return -1;
     }
     public boolean useItem(String item) {
-        int itemStock = stock.get(item);
-        if (itemStock > 0) {
-            stock.put(item, itemStock - 1);
-            return true;
+        if (stock.containsKey(item)) {
+            int itemStock = stock.get(item);
+            if (itemStock > 0) {
+                stock.put(item, itemStock - 1);
+                return true;
+            }
         }
         return false;
     }
